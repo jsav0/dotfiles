@@ -4,7 +4,6 @@
 
 discord(){
 if ! `flatpak ps | grep -q Discord`; then
-        "Discord is not running!"
         notify-send "Starting Discord now ... please wait ..."
         flatpak run com.discordapp.Discord >/dev/null 2>&1 &
 else

@@ -1,0 +1,29 @@
+#!/bin/bash
+# savage
+# a custom dmenu launcher for my apps
+
+PATH=~/.local/bin:$PATH
+
+#
+my_app_list="\
+files
+firefox
+spotify
+discord
+glances
+gif_record
+screenshot
+"
+
+#
+open=`printf "$my_app_list" | dmenu`
+case $open in
+	discord) discord.sh;;
+	spotify) spotify.sh;;
+	firefox) /usr/bin/firefox;;
+	files) /usr/bin/Thunar;;
+	glances) ps aux | grep glances | grep -v grep && notify-send "glances is already running!" || xfce4-terminal -e /usr/bin/glances;;
+	gif_record) gif_record.sh;;
+  screenshot) screenshot.sh;;
+	*) exit 1;;
+esac
