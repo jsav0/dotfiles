@@ -7,7 +7,7 @@
 prompt() { \
 	CHOICE=$(printf "save\ncopy\nexit" | dmenu -p "Select screenshot type: ")
 	case $CHOICE in
-		save) maim -s > /tmp/ss.png;;
+		save) maim -s > /tmp/ss_$(date +%F_%H_%M).png && notify-send "screenshot saved to /tmp/ss_$(date +%F_%H_%M).png";;
 		copy) maim -s | xclip -selection clipboard -t image/png;;
 		exit) exit 0;;
 		*) exit 1;;

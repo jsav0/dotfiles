@@ -1,7 +1,6 @@
 #!/usr/bin/bash
 # savage
-
-# get IP ADDRESS data and return JSON response
+# uses ipinfo.io , returns JSON response 
 curl https://ipinfo.io/$1/json
 
 # it is then possible to pipe results to jq for parsing
