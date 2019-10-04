@@ -1,7 +1,5 @@
 #!/bin/bash
 #
-#
-#
 
 function help() {
   echo "try again with one of these:"
