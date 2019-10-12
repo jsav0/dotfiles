@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 function help() {
 	echo "try using one of the following or creating a new case:"
