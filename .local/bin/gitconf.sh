@@ -5,7 +5,8 @@ case $1 in
 		  git config user.name "jsav0";;
 	n0a110w)  git config user.email "n0a110w@protonmail.com"
 		  git config user.name "n0a110w";;
-	*) echo "try again or setup a new config";;
+	*) echo "try again with one of the following or setup a new config"
+	   echo "jsav0 | n0a110w" ;;
 esac
 
 
