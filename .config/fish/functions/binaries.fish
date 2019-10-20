@@ -1,3 +1,5 @@
 function binaries
-	dpkg -L $argv | grep -Po '.*/bin/\K.*'
+	for f in (dpkg -L "$argv" | grep "/bin/")
+		basename $f
+	end
 end
