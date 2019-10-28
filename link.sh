@@ -7,6 +7,7 @@ function help() {
 
 case $1 in
 	fish) rm -rf ~/.config/fish&&ln -s ~/gits/dotfiles/.config/fish ~/.config/;;
+	misc) rm -rf ~/.config/misc&&ln -s ~/gits/dotfiles/.config/misc ~/.config/;;
 	dunst) rm -rf ~/.config/dunst&&ln -s ~/gits/dotfiles/.config/dunst ~/.config/;;
 
 	bin) rm -rf ~/.local/bin&&ln -s ~/gits/dotfiles/.local/bin ~/.local/;;
