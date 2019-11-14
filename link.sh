@@ -2,10 +2,11 @@
 
 function help() {
 	echo "try using one of the following or creating a new case:"
-	echo "fish  ,  dunst  ,  bg  ,  bin"
+	echo "i3 , fish  ,  dunst  ,  bg  ,  bin"
 }
 
 case $1 in
+	i3) rm -rf ~/.config/i3&&ln -s ~/gits/dotfiles/.config/i3 ~/.config/;;
 	fish) rm -rf ~/.config/fish&&ln -s ~/gits/dotfiles/.config/fish ~/.config/;;
 	misc) rm -rf ~/.config/misc&&ln -s ~/gits/dotfiles/.config/misc ~/.config/;;
 	dunst) rm -rf ~/.config/dunst&&ln -s ~/gits/dotfiles/.config/dunst ~/.config/;;
