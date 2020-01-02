@@ -1,13 +1,14 @@
 #!/usr/bin/bash
 # savage
 #
-# depends: dmenu, byzanz-record, notify-send
-# demnu for prompting a custom duration
-# byzanz-record is the screen recorder utility
-# notify-send for sending screen notifications
+# using: dmenu, byzanz-record, notify-send
+# - demnu for prompting a custom duration
+# - byzanz-record is the screen recorder utility
+# - notify-send for sending screen notifications
 #
 TIME=$(date '+%Y-%m-%d_%H%M-%S')
-DIR=$HOME/screencaptures
+DIR=$HOME/screencaptures/clips
+[ ! -d $DIR ] && mkdir -p $DIR
 beep() {
     paplay /usr/share/sounds/freedesktop/stereo/message-new-instant.oga &
 }
@@ -27,12 +28,15 @@ record_window_gif() {
 	read Y < <(awk -F: '/Absolute upper-left Y/{print $2}' <<< "$XWININFO")
 	read W < <(awk -F: '/Width/{print $2}' <<< "$XWININFO")
 	read H < <(awk -F: '/Height/{print $2}' <<< "$XWININFO")
+	
+	# start recording
 	sleep 1
 	beep
 	byzanz-record -c --delay=0 --duration=$D --x=$X --y=$Y --width=$W --height=$H "$DIR/GIFrecord_$TIME.gif"
 	beep
+
 	# notify end of recording
-	notify-send "Screencast saved to $DIR/GIFrecord_$TIME.gif"
+	notify-send "Screencast saved to $DIR/record_$TIME.gif"
 }
 
 prompt
