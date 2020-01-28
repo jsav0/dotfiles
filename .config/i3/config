@@ -160,7 +160,7 @@ bindsym $mod+r mode "resize"
 # based off of the image: the raven by mugwort (threyda)
 #
 # demnu
-bindsym $mod+p exec "dmenu_run -nf '#FFFFFF' -nb '#000000' -sb '#CEAF51' -sf '#000000' -fn 'monospace-10' -p 'dmenu prompt: ' "
+bindsym $mod+p exec "dmenu_run -fn 'monospace-10' -p 'dmenu prompt: ' "
 
 # general class         border  bground text    indicator child_border
 client.focused          #CEAF51 #000000 #CEAF51 #2E9EF4   #CEAF51
