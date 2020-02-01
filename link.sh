@@ -2,7 +2,7 @@
 
 function help() {
 	echo "try using one of the following or creating a new case:"
-	echo "i3 , hlwm , polybar , misc , sounds , fish  ,  dunst  ,  bg  ,  bin"
+	echo "i3 , hlwm , polybar , misc , fish  ,  dunst  ,  bg  ,  bin"
 }
 
 case $1 in
@@ -15,7 +15,6 @@ case $1 in
 
 	bin) rm -rf ~/.local/bin&&ln -s ~/gits/dotfiles/.local/bin ~/.local/;;
 	bg) rm -rf ~/.local/backgrounds&&ln -s ~/gits/dotfiles/.local/backgrounds ~/.local/;;
-	sounds) rm -rf ~/.local/sounds&&ln -s ~/gits/dotfiles/.local/sounds ~/.local/;;
 	*) help #echo "error. Try again or setup a new case";;
 esac
 
