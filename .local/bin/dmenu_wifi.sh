@@ -3,7 +3,7 @@
 # File: dmenu_wifi.sh
 # Description: wifi manager (iwd) with dmenu
 #
-# make sure you have iwd enabled
+# make sure iwd is enabled
 # ln -s /etc/sv/dbus /var/service/
 # ln -s /etc/sv/iwd /var/service/
 #
