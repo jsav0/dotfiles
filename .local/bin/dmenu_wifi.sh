@@ -1,5 +1,6 @@
 #!/bin/bash
-# js
+# n0
+#
 # File: dmenu_wifi.sh
 # Description: wifi manager (iwd) with dmenu
 #
@@ -9,7 +10,8 @@
 #
 # and typically dhcpcd 
 # ln -s /etc/sv/dhcpcd /var/service/dhcpcd
-# 
+#
+# a110w 
 
 iwctlstrip() {
   tail -n +3 | sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g"
