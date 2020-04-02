@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/home/n0a110w/gits/ansible-darkvoid/roles'
+let g:netrw_dirhist_1='/home/n0a110w/.config/nvim'
+let g:netrw_dirhist_0='/home/n0a110w/webtest/src/markdown'
+let g:netrw_dirhist_9='/etc/sv/dhcpcd'
+let g:netrw_dirhist_8='/etc/sv/wpa_supplicant'
+let g:netrw_dirhist_7='/home/n0a110w/.config/nvim'
+let g:netrw_dirhist_6='/home/n0a110w'
+let g:netrw_dirhist_5='/home/n0a110w/backups'
+let g:netrw_dirhist_4='/home/n0a110w'
+let g:netrw_dirhist_3='/home/n0a110w/documents'
