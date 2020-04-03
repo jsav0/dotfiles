@@ -2,7 +2,7 @@
 
 function help() {
 	echo "try using one of the following or creating a new case:"
-	echo "i3 , hlwm , polybar , misc , fish  ,  dunst  ,  bg  ,  bin"
+	echo "i3 , hlwm , misc , fish  ,  dunst ,  bin"
 }
 
 case $1 in
