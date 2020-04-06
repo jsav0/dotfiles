@@ -10,6 +10,7 @@ link=$(cat /dev/stdin)
 ip=$(curl -s https://ipinfo.io/$link/json)
 ip_info=$(curl -s https://ipinfo.io/$link/json | jq .ip,.city,.region,.country)
 
-notify-send "$ip_info"
+#notify-send "$ip_info"
+echo "$ip_info"
 
 
