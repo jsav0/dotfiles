@@ -29,7 +29,8 @@ end
 
 # get public ip
 function wip
-        dig +short myip.opendns.com @resolver1.opendns.com;
+        #dig +short myip.opendns.com @resolver1.opendns.com
+	curl -s https://canihazip.com/s
 end
 
 
