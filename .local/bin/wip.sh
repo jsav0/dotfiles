@@ -1,4 +1,7 @@
 #!/bin/bash
+
+while true 
+do
 #ip=$(dig +short myip.opendns.com @resolver1.opendns.com)
 ip=$(curl -s https://canihazip.com/s)
 #notify-send "$ip"
@@ -7,4 +10,5 @@ echo ""
 echo "Public IPv4 Address: $ip"
 echo ""
 echo "$ip_info"
-
+sleep 7 
+done
