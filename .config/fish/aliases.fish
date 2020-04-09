@@ -25,6 +25,7 @@ alias hc 'herbstclient'
 function gconf 
 	~/.local/bin/gitconf.sh $argv[1];
 end
+alias gcm='git commit -m'
 
 
 # get public ip
