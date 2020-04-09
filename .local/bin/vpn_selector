@@ -48,23 +48,23 @@ LOCATIONS=(
 
 disconnect() {
 VPN=$(sudo wg show | grep 'vpn\-' | awk '{print $2}')
-[[ "$VPN" == "" ]] || sudo wg-quick down "$VPN" 
+[[ "$VPN" == "" ]] || sudo wg-quick down "$VPN" > /dev/null 2>&1 
 }
 
 connect() {
 VPN_LOCATION=$(printf '%s\n' "${LOCATIONS[@]}" | $SELECTOR "Select location: ")
 CITY=$(echo $VPN_LOCATION | awk -F, '{print $1}') 
 case $CITY in 
-	Stockholm ) 	disconnect && sudo wg-quick up vpn-se1 &;; 
-	Gothenburg )	disconnect && sudo wg-quick up vpn-se2 &;;
-	London )	disconnect && sudo wg-quick up vpn-uk1 &;;
-	Miami )		disconnect && sudo wg-quick up vpn-us1 &;; 
-	Malaga ) 	disconnect && sudo wg-quick up vpn-es1 &;;
-	Toronto ) 	disconnect && sudo wg-quick up vpn-ca1 &;;
-	Oslo ) 		disconnect && sudo wg-quick up vpn-no1 &;;
-	Amsterdam ) 	disconnect && sudo wg-quick up vpn-nl1 &;;
-	Phuket ) 	disconnect && sudo wg-quick up vpn-th1 &;;
-	Cophenhagen ) 	disconnect && sudo wg-quick up vpn-dk1 &;;
+	Stockholm ) 	disconnect && sudo wg-quick up vpn-se1 > /dev/null 2>&1 &;; 
+	Gothenburg )	disconnect && sudo wg-quick up vpn-se2 > /dev/null 2>&1 &;;
+	London )	disconnect && sudo wg-quick up vpn-uk1 > /dev/null 2>&1 &;;
+	Miami )		disconnect && sudo wg-quick up vpn-us1 > /dev/null 2>&1 &;; 
+	Malaga ) 	disconnect && sudo wg-quick up vpn-es1 > /dev/null 2>&1 &;;
+	Toronto ) 	disconnect && sudo wg-quick up vpn-ca1 > /dev/null 2>&1 &;;
+	Oslo ) 		disconnect && sudo wg-quick up vpn-no1 > /dev/null 2>&1 &;;
+	Amsterdam ) 	disconnect && sudo wg-quick up vpn-nl1 > /dev/null 2>&1 &;;
+	Phuket ) 	disconnect && sudo wg-quick up vpn-th1 > /dev/null 2>&1 &;;
+	Cophenhagen ) 	disconnect && sudo wg-quick up vpn-dk1 > /dev/null 2>&1 &;;
 	* ) exit 1
 esac
 }
