@@ -89,7 +89,13 @@ hc pad $monitor $panel_height
         # and then waits for the next event to happen.
 
         separator="^bg()^fg($selbg)|"
-        # draw tags
+	public_ip=$(cat /tmp/public_ip | awk '{print $1}')
+	geolocation=$(cat /tmp/public_ip | cut -d" " -f2-)
+	echo -n "^bg()^fg($selbg) ${public_ip}"
+	echo -n "^bg()^fg() ${geolocation}"
+        echo -n " $separator"
+        
+	# draw tags
         for i in "${tags[@]}" ; do
             case ${i:0:1} in
                 '#')
@@ -119,7 +125,8 @@ hc pad $monitor $panel_height
         done
         echo -n "$separator"
         echo -n "^bg()^fg() ${windowtitle//^/^^}"
-        # small adjustments
+	
+	# small adjustments
         right="$separator^bg() $date $separator"
         right_text_only=$(echo -n "$right" | sed 's.\^[^(]*([^)]*)..g')
         # get width of right aligned text.. and add some space..
