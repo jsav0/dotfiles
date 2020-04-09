@@ -69,9 +69,23 @@ case $CITY in
 esac
 }
 
+wip() {
+  JSON=/tmp/ip_json
+  IP=$(curl -s https://canihazip.com/s)
+  IP_INFO=$(curl -s https://ipinfo.io/$IP/json --output $JSON)
+  CITY=$(cat $JSON | jq .city | tr -d '\"')
+  REGION=$(cat $JSON | jq .region | tr -d '\"')
+  COUNTRY=$(cat $JSON | jq .country | tr -d '\"')
+  printf "$IP $CITY, $REGION, $COUNTRY" > /tmp/public_ip
+}
+
 CHOICE=$(printf "connect\ndisconnect" | $SELECTOR "What do you want to do? ")
 case $CHOICE in
-	connect)	connect && notify-send "connected to: $VPN_LOCATION"
+	connect)	connect && {
+				sleep 3
+				notify-send "connected to: $VPN_LOCATION"
+				wip
+			}
 			;;
 	disconnect)	disconnect;;
 	*)		exit 1
