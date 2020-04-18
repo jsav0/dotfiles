@@ -1,0 +1,3 @@
+#!/bin/sh
+# start firefox
+firefox --new-instance -P savage --class=mainff

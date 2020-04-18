@@ -1,5 +1,0 @@
-#!/bin/bash
-# start weechat
-ps aux | grep weechat | grep -v grep > /dev/null || {
-	st -n "weechat" -e "/bin/weechat" & 
-}
