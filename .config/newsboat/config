@@ -1,5 +1,15 @@
-#show-read-feeds no
 auto-reload yes
+reload-time 5
+
+feedlist-title-format ">> savage's %N (v%V)"
+feedlist-format "| %t %u | %l"
+
+articlelist-title-format "%T (%u unread, %t total) - %U"
+articlelist-format "-| %D | %t" 
+
+itemview-title-format "%T | %F"
+
+podlist-format ">> %-15S [%6dMB/%6tMB] [%5p %%] [%12K] → %F"
 
 browser "firefox"
 external-url-viewer "urlhandler.sh"
@@ -22,9 +32,14 @@ bind-key N prev-unread
 bind-key D pb-download
 bind-key U show-urls
 bind-key x pb-delete
+bind-key R reload
 
-color listnormal          blue   	black
+color listnormal          blue		black	dim	
 color listfocus           white  	black  	bold
 color listnormal_unread   yellow 	black
 color listfocus_unread    white 	black	bold
 color info                yellow 	black	standout
+
+player "mpv --no-video --no-terminal"
+
+download-path "~/media/Podcasts/%n"
