@@ -3,12 +3,12 @@
 # n0
 # File: vpn_selector.sh
 # Description: quick vpn switcher (wireguard) with dmenu or peco
-# a110w
+# Requires: wireguard, dmenu and/or peco 
 #
 
 # debugging
-#set -x 
-#exec > $HOME/.vpn_selector.log 2>&1
+set -x 
+exec > $HOME/.vpn_selector.log 2>&1
 
 usage() {
 echo "
@@ -48,7 +48,7 @@ LOCATIONS=(
 
 disconnect() {
 VPN=$(sudo wg show | grep 'vpn\-' | awk '{print $2}')
-[[ "$VPN" == "" ]] || sudo wg-quick down "$VPN" > /dev/null 2>&1 
+[ -z "$VPN" ] || sudo wg-quick down "$VPN" > /dev/null 2>&1 
 }
 
 connect() {
