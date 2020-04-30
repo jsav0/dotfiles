@@ -46,7 +46,7 @@ hc keybind $Mod-Control-l       resize right +$resizestep
 
 # tags
 #tag_names=( {1..9} )
-tag_names=( " " "read" "main" "virt" " " " " "eyez" " " "irc" )
+tag_names=( ">_" "webdev" "main" "virt" "tmp " " " "eyez" " " "irc" )
 tag_keys=( {1..9} 0 )
 
 hc rename default "${tag_names[0]}" || true
@@ -109,21 +109,26 @@ hc rule instance=weechat tag=irc
 hc rule class=eyez floating=on tag=eyez
 
 # floaters
+hc rule instance=Devtools floating=on
+hc rule class=Zathura floating=on
 hc rule class=Transmission-gtk floating=on
 hc rule class=mpv floating=on 
-hc rule class=Zathura floating=on
-hc rule instance=lf floating=on 
 hc rule instance=nvim-float floating=on 
 hc rule instance=st-float floating=on 
+hc rule instance=lf floating=on 
+hc rule class=qtfm floating=on
+
+
+
+# webdev layout
+hc load webdev '(split vertical:0.8:0 (split horizontal:0.5:0 (clients vertical:0) (clients vertical:0)) (split horizontal:0.5:0 (clients horizontal:0) (clients horizontal:0)))'
 
 # main layout
-hc load main '(split vertical:0.2:1 (split horizontal:0.55:0 (clients vertical:0) (clients vertical:0)) (split horizontal:0.45:0 (split vertical:0.45:0 (clients grid:0) (clients grid:0)) (clients vertical:0)))'
-hc rule class=Firefox tag=main index=11
-hc rule class=qtfm tag=main floating=on
+hc load main '(split vertical:0.2:1 (split horizontal:0.5:1 (clients vertical:0) (clients vertical:0)) (split vertical:0.85:1 (split horizontal:0.35:1 (split vertical:0.5:0 (clients vertical:0) (clients grid:0)) (clients vertical:0)) (clients vertical:0)))'
 hc rule class=newsboat tag=main index=01
 
 # virt layout
-hc load virt '(split horizontal:0.2:1 (clients vertical:0) (split vertical:0.8:1 (clients vertical:0) (clients vertical:0)))' 
+#hc load virt '(split horizontal:0.2:1 (clients vertical:0) (split vertical:0.8:1 (clients vertical:0) (clients vertical:0)))' 
 hc rule class=Virt-manager tag=virt index=01 pseudotile=on
 
 hc set tree_style '╾│ ├└╼─┐'
