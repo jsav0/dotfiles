@@ -89,6 +89,8 @@ hc pad $monitor $panel_height
         # and then waits for the next event to happen.
 
         separator="^bg()^fg($selbg)|"
+	minavg=$(uptime | awk '{print $9}' | tr -d ',')
+	wx=$(cat /tmp/wx)
 	public_ip=$(cat /tmp/public_ip | awk '{print $1}')
 	geolocation=$(cat /tmp/public_ip | cut -d" " -f2-)
 	echo -n "^bg()^fg($selbg) ${public_ip}"
@@ -127,8 +129,9 @@ hc pad $monitor $panel_height
         echo -n "^bg()^fg() ${windowtitle//^/^^}"
 	
 	# small adjustments
-        right="$separator^bg() $date $separator"
-        right_text_only=$(echo -n "$right" | sed 's.\^[^(]*([^)]*)..g')
+	right="$separator^bg() $date $separator $wx $separator ^fg(#909090)$minavg"
+	echo "$right" >/tmp/right.txt
+	right_text_only=$(echo -n "$right" | sed 's.\^[^(]*([^)]*)..g')
         # get width of right aligned text.. and add some space..
         width=$($textwidth "$font" "$right_text_only    ")
         echo -n "^pa($(($panel_width - $width)))$right"
