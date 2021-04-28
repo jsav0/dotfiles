@@ -1,4 +1,0 @@
-map r reload
-map R rotate
-set statusbar-bg '#CEAF51'
-set statusbar-fg 'black'

@@ -1,2 +1,0 @@
-#!/bin/bash
-st -n "lf" -e "/bin/lf"
