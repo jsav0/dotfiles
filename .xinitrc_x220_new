@@ -1,3 +1,0 @@
-dunst > /dev/null 2>&1 &
-exec herbstluftwm --locked
-#exec i3
